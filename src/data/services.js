@@ -1,19 +1,13 @@
 /**
- * Service names supplied by the client.
- * Descriptions are placeholders until GEMCOP provides official copy.
+ * Confirmed GEMCOP services.
+ * A third service exists but has not been named yet — keep a reserved slot only.
  */
 export const services = [
-  { id: "social-media-marketing", name: "Social Media Marketing" },
-  { id: "performance-marketing", name: "Performance Marketing" },
-  { id: "lead-generation", name: "Lead Generation" },
-  { id: "content-strategy", name: "Content Strategy" },
-  { id: "copywriting", name: "Copywriting" },
-  { id: "video-editing", name: "Video Editing" },
-  { id: "graphic-design", name: "Graphic Design" },
-  { id: "web-development", name: "Web Development" },
-  { id: "brand-marketing", name: "Brand Marketing" },
-].map((service, index) => ({
-  ...service,
-  number: String(index + 1).padStart(2, "0"),
-  description: "Service description will be provided by GEMCOP.",
-}));
+  { id: "brand-building", name: "Brand Building", number: "01" },
+  { id: "performance-marketing", name: "Performance Marketing", number: "02" },
+];
+
+export const serviceSlots = [
+  ...services,
+  { id: "service-03", number: "03", reserved: true },
+];

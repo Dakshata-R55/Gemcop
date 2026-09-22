@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { navLinks, site } from "../data/site.js";
+import { navLinks, site, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "../data/site.js";
 import { services as serviceItems } from "../data/services.js";
 
 export default function Footer() {
@@ -39,7 +39,7 @@ export default function Footer() {
         <div>
           <p className="eyebrow">Services</p>
           <ul className="mt-5 space-y-3">
-            {serviceItems.slice(0, 6).map((service) => (
+            {serviceItems.map((service) => (
               <li key={service.id}>
                 <Link
                   to="/services"
@@ -55,17 +55,34 @@ export default function Footer() {
         <div>
           <p className="eyebrow">Contact</p>
           <ul className="mt-5 space-y-3 text-sm text-muted">
-            <li>{site.contact.email}</li>
-            <li>{site.contact.phone}</li>
-            <li>{site.contact.location}</li>
+            <li>
+              <a
+                href={`mailto:${site.contact.email}`}
+                className="text-paper/80 transition-colors hover:text-gold"
+              >
+                {site.contact.email}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noreferrer"
+                className="text-paper/80 transition-colors hover:text-gold"
+              >
+                WhatsApp {WHATSAPP_DISPLAY}
+              </a>
+            </li>
           </ul>
           <ul className="mt-6 flex flex-wrap gap-4">
             {site.socials.map((social) => (
               <li key={social.label}>
                 <a
                   href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="text-sm text-paper/80 transition-colors hover:text-gold"
-                  aria-label={`${social.label} profile — placeholder until GEMCOP provides a link`}
+                  aria-label={social.label}
                 >
                   {social.label}
                 </a>

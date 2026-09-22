@@ -5,6 +5,7 @@ import Services from "./pages/Services.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import CaseStudies from "./pages/CaseStudies.jsx";
 import Contact from "./pages/Contact.jsx";
+import BookACall from "./pages/BookACall.jsx";
 import PlaceholderLegal from "./pages/PlaceholderLegal.jsx";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/book-a-call" element={<BookACall />} />
         <Route
           path="/privacy"
           element={

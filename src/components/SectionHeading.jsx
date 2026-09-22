@@ -5,7 +5,6 @@ export default function SectionHeading({
   title,
   description,
   align = "left",
-  light = false,
 }) {
   const reduceMotion = useReducedMotion();
   const alignment =
@@ -20,9 +19,7 @@ export default function SectionHeading({
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
     >
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
-      <h2
-        className={`display-title text-[clamp(2.2rem,5vw,4.4rem)] ${light ? "text-paper" : "text-paper"}`}
-      >
+      <h2 className="display-title text-[clamp(2.2rem,5vw,4.4rem)]">
         {title}
       </h2>
       {description ? (

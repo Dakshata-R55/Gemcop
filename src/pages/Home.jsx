@@ -1,5 +1,6 @@
 import { useLocation } from "react-router-dom";
-import { services } from "../data/services.js";
+import { approachSteps, cta } from "../data/site.js";
+import { serviceSlots } from "../data/services.js";
 import { portfolioPlaceholders } from "../data/portfolio.js";
 import { caseStudyPlaceholders } from "../data/caseStudies.js";
 import Button from "../components/Button.jsx";
@@ -9,6 +10,22 @@ import Seo from "../components/Seo.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
 import WorkCard from "../components/WorkCard.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
+import CinematicHero from "../components/CinematicHero.jsx";
+
+function HomeBand({ tone, first = false, className = "", children }) {
+  const isLight = tone === "light";
+
+  return (
+    <section
+      data-theme={isLight ? "light" : "dark"}
+      className={`${isLight ? "bg-paper text-ink" : "bg-ink text-paper"} ${
+        first ? "" : "border-t border-line"
+      } ${className}`}
+    >
+      {children}
+    </section>
+  );
+}
 
 export default function Home() {
   const location = useLocation();
@@ -17,75 +34,111 @@ export default function Home() {
     <>
       <Seo
         title="GEMCOP"
-        description="GEMCOP is a digital marketing and creative agency. Homepage copy will be updated when official content is provided."
+        description="GEMCOP is a growth and digital transformation company that helps startups and enterprises bring clarity to their growth efforts and build systems that perform."
       />
 
-      <section className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(184,148,74,0.12),transparent_36%)]" />
-        <div className="container-site relative flex min-h-[88vh] flex-col justify-end pb-16 pt-10 sm:pb-24">
-          <Reveal>
-            <p className="eyebrow">Placeholder copy</p>
-            <h1 className="display-title mt-6 max-w-5xl text-[clamp(4rem,14vw,10.5rem)] text-paper">
-              GEMCOP
-            </h1>
-            <p className="mt-6 max-w-xl font-display text-2xl italic text-paper/80 sm:text-3xl">
-              Engineered Growth. Built on Systems.
-            </p>
-            <p className="mt-4 max-w-lg text-sm text-muted">
-              Temporary placeholder headline until GEMCOP supplies official hero
-              copy.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button to="/contact" variant="gold">
-                Start a Project
-              </Button>
-              <Button to="/portfolio" variant="secondary">
-                Explore Our Work
-              </Button>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+      <HomeBand tone="dark" first className="relative">
+        <CinematicHero />
+      </HomeBand>
 
-      <section className="border-t border-line py-20 sm:py-28">
+      <HomeBand tone="light" className="py-20 sm:py-28">
         <div className="container-site grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <SectionHeading
-            eyebrow="Introduction"
-            title="About GEMCOP"
-          />
+          <SectionHeading eyebrow="Introduction" title="About GEMCOP" />
           <Reveal delay={0.1}>
-            <p className="text-lg leading-relaxed text-paper/80 sm:text-xl">
-              About copy will be provided by GEMCOP.
+            <p className="text-lg leading-relaxed sm:text-xl">
+              GEMCOP is a growth and digital transformation company that helps
+              startups and enterprises bring clarity to their growth efforts and
+              build systems that perform.
             </p>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-              This introduction is a structural placeholder. It will be replaced
-              with GEMCOP’s official positioning when supplied.
+              Its work brings together strategy, content, technology, branding,
+              and performance marketing to help businesses build sustainable
+              growth systems.
             </p>
           </Reveal>
         </div>
-      </section>
+      </HomeBand>
 
-      <section className="border-t border-line py-20 sm:py-28">
+      <HomeBand tone="dark" className="py-20 sm:py-28">
         <div className="container-site">
           <div className="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
               eyebrow="Services"
-              title="Our services"
-              description="Service descriptions will be provided by GEMCOP."
+              title="What we do"
+              description="Brand Building and Performance Marketing."
             />
             <Button to="/services" variant="secondary" className="self-start sm:self-auto">
               All services
             </Button>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((service, index) => (
+          <div className="grid gap-4 md:grid-cols-3">
+            {serviceSlots.map((service, index) => (
               <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>
         </div>
-      </section>
+      </HomeBand>
 
-      <section className="border-t border-line py-20 sm:py-28">
+      <HomeBand tone="light" className="py-20 sm:py-28">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="Approach"
+            title="Systems over noise"
+            description="GEMCOP positions itself around building structured growth systems rather than simply producing marketing output."
+          />
+          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+            <Reveal>
+              <p className="font-display text-3xl leading-snug sm:text-4xl">
+                Sustainable growth over isolated campaigns.
+              </p>
+              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+                Its public messaging emphasizes positioning, content strategy,
+                performance systems, digital transformation, and long-term
+                business growth.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="text-base leading-relaxed sm:text-lg">
+                GEMCOP describes growth as something that should be deliberately
+                built through clear positioning, strong narratives, distribution
+                systems, and business alignment.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </HomeBand>
+
+      <HomeBand tone="dark" className="py-20 sm:py-28">
+        <div className="container-site">
+          <SectionHeading
+            eyebrow="Method"
+            title="A disciplined approach"
+            description="GEMCOP says it works closely with clients to understand their business, challenges, and goals, then applies a clear and disciplined approach focused on execution and meaningful results."
+          />
+          <ol className="mt-14 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-end">
+            {approachSteps.map((step, index) => (
+              <li key={step} className="flex items-end gap-6">
+                <Reveal delay={index * 0.05}>
+                  <span className="text-xs tracking-[0.2em] text-gold">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-3 font-display text-3xl sm:text-4xl">{step}</p>
+                </Reveal>
+                {index < approachSteps.length - 1 ? (
+                  <span
+                    aria-hidden="true"
+                    className="mb-2 hidden font-display text-3xl text-gold sm:inline"
+                  >
+                    →
+                  </span>
+                ) : null}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </HomeBand>
+
+      <HomeBand tone="light" className="py-20 sm:py-28">
         <div className="container-site">
           <div className="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
@@ -107,9 +160,9 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </HomeBand>
 
-      <section className="border-t border-line py-20 sm:py-28">
+      <HomeBand tone="dark" className="py-20 sm:py-28">
         <div className="container-site">
           <div className="mb-12 sm:mb-16">
             <SectionHeading
@@ -129,9 +182,9 @@ export default function Home() {
             </Button>
           </div>
         </div>
-      </section>
+      </HomeBand>
 
-      <section className="border-t border-line">
+      <HomeBand tone="light">
         <div className="container-site py-20 sm:py-28">
           <Reveal>
             <p className="eyebrow">Start a conversation</p>
@@ -139,17 +192,18 @@ export default function Home() {
               Start a project
             </h2>
             <p className="mt-5 max-w-lg text-muted">
-              CTA copy will be provided by GEMCOP. This section is a visual
-              placeholder for the next step.
+              GEMCOP works closely with clients to understand their business,
+              challenges, and goals, then applies a clear and disciplined
+              approach focused on execution and meaningful results.
             </p>
             <div className="mt-10">
-              <Button to="/contact" variant="gold">
-                Start a Project
+              <Button to={cta.to} variant="gold">
+                {cta.label}
               </Button>
             </div>
           </Reveal>
         </div>
-      </section>
+      </HomeBand>
     </>
   );
 }

@@ -26,7 +26,7 @@ export default function CaseStudyCard({ study, index = 0 }) {
       </div>
       <div className="p-6 sm:p-8">
         <p className="eyebrow">Placeholder case study</p>
-        <h3 className="mt-4 font-display text-3xl text-paper">{study.client}</h3>
+        <h3 className="mt-4 font-display text-3xl">{study.client}</h3>
         <dl className="mt-6 space-y-4">
           {fields.map(([label, key]) => (
             <div key={key}>

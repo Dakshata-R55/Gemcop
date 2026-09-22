@@ -4,7 +4,7 @@ const variants = {
   primary:
     "bg-paper text-ink hover:bg-gold hover:text-ink border border-transparent",
   secondary:
-    "bg-transparent text-paper border border-line hover:border-gold hover:text-gold",
+    "bg-transparent text-inherit border border-line hover:border-gold hover:text-gold",
   gold: "bg-gold text-ink hover:bg-gold-soft border border-transparent",
 };
 

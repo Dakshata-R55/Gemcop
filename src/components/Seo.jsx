@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function Seo({
   title,
-  description = "GEMCOP is a digital marketing and creative agency. Page copy will be updated when official content is provided.",
+  description = "GEMCOP is a growth and digital transformation company that helps startups and enterprises bring clarity to their growth efforts and build systems that perform.",
 }) {
   useEffect(() => {
     document.title = title;

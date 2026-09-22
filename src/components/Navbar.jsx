@@ -1,32 +1,48 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
-import { cta, navLinks, site } from "../data/site.js";
+import { cta, getPageTheme, navLinks, site } from "../data/site.js";
 import Button from "./Button.jsx";
+import { useSmoothScroll } from "./SmoothScroll.jsx";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const reduceMotion = useReducedMotion();
   const location = useLocation();
+  const theme = getPageTheme(location.pathname);
+  const solidNav = scrolled || theme === "light";
+  const { lenis } = useSmoothScroll();
 
   useEffect(() => {
     setOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    if (!lenis) {
+      const onScroll = () => setScrolled(window.scrollY > 12);
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
+
+    const onScroll = ({ scroll }) => setScrolled(scroll > 12);
+    onScroll({ scroll: lenis.scroll });
+    lenis.on("scroll", onScroll);
+    return () => lenis.off("scroll", onScroll);
+  }, [lenis]);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    if (lenis) {
+      if (open) lenis.stop();
+      else lenis.start();
+    }
     return () => {
       document.body.style.overflow = "";
+      lenis?.start();
     };
-  }, [open]);
+  }, [open, lenis]);
 
   return (
     <header className="sticky top-0 z-40">
@@ -37,8 +53,8 @@ export default function Navbar() {
       >
         <div
           className={`relative z-50 flex w-full items-center justify-between rounded-full border px-4 py-2 backdrop-blur-md sm:px-5 ${
-            scrolled
-              ? "border-line bg-ink/85"
+            solidNav
+              ? "border-line bg-ink/90"
               : "border-transparent bg-ink/40"
           }`}
         >

@@ -1,4 +1,4 @@
-import { site } from "../data/site.js";
+import { site, WHATSAPP_DISPLAY, WHATSAPP_NUMBER } from "../data/site.js";
 import Seo from "../components/Seo.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import ContactForm from "../components/ContactForm.jsx";
@@ -8,27 +8,39 @@ export default function Contact() {
     <>
       <Seo
         title="Contact — GEMCOP"
-        description="Contact GEMCOP. Email, phone, and location details will be added when provided."
+        description="Contact GEMCOP by email or WhatsApp."
       />
       <section className="container-site grid gap-14 py-16 sm:py-24 lg:grid-cols-[0.9fr_1.1fr]">
         <div>
           <SectionHeading
             eyebrow="Contact"
             title="Start a project."
-            description="Contact details below are placeholders until GEMCOP provides official information. The form is UI-only."
+            description="Reach GEMCOP by email or WhatsApp. The form is UI-only."
           />
           <dl className="mt-10 space-y-6">
             <div>
               <dt className="eyebrow">Email</dt>
-              <dd className="mt-2 text-paper/80">{site.contact.email}</dd>
+              <dd className="mt-2 text-paper/80">
+                <a
+                  href={`mailto:${site.contact.email}`}
+                  className="hover:text-gold"
+                >
+                  {site.contact.email}
+                </a>
+              </dd>
             </div>
             <div>
-              <dt className="eyebrow">Phone</dt>
-              <dd className="mt-2 text-paper/80">{site.contact.phone}</dd>
-            </div>
-            <div>
-              <dt className="eyebrow">Location</dt>
-              <dd className="mt-2 text-paper/80">{site.contact.location}</dd>
+              <dt className="eyebrow">WhatsApp</dt>
+              <dd className="mt-2 text-paper/80">
+                <a
+                  href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-gold"
+                >
+                  {WHATSAPP_DISPLAY}
+                </a>
+              </dd>
             </div>
             <div>
               <dt className="eyebrow">Social</dt>
@@ -37,8 +49,10 @@ export default function Contact() {
                   <a
                     key={social.label}
                     href={social.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="text-sm text-paper/80 hover:text-gold"
-                    aria-label={`${social.label} — placeholder link`}
+                    aria-label={social.label}
                   >
                     {social.label}
                   </a>

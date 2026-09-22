@@ -19,7 +19,8 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    overflow-x: hidden;
+    scroll-behavior: auto;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -40,6 +41,7 @@
   body {
     @apply bg-ink font-sans text-paper antialiased;
     margin: 0;
+    overflow-x: hidden;
   }
 
   #root {
@@ -88,4 +90,19 @@
   .hairline {
     @apply h-px w-full bg-line;
   }
+}
+
+[data-theme="light"] .surface-card {
+  border-color: var(--color-line-dark);
+  background-color: #ffffff;
+}
+
+[data-theme="light"] .border-line,
+[data-theme="light"].border-line {
+  border-color: var(--color-line-dark);
+}
+
+.calendly-inline-widget,
+.calendly-inline-widget iframe {
+  max-width: 100%;
 }

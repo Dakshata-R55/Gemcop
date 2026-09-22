@@ -32,7 +32,7 @@ export default function WorkCard({
           <p className="text-[0.7rem] uppercase tracking-[0.22em] text-gold">
             {item.category}
           </p>
-          <h3 className="font-display text-3xl text-paper">{item.name}</h3>
+          <h3 className="font-display text-3xl">{item.name}</h3>
           <p className="text-sm leading-relaxed text-muted">{item.description}</p>
         </div>
       </Link>
