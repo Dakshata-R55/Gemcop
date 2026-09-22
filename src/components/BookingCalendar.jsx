@@ -1,5 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { bookingConfig } from "../data/booking.js";
+
+const INITIAL_HEIGHT = 1100;
 
 function loadCalendlyAssets() {
   if (!document.querySelector(`link[href="${bookingConfig.widgetCss}"]`)) {
@@ -33,14 +35,33 @@ function loadCalendlyAssets() {
   });
 }
 
+function isCalendlyEvent(event) {
+  return (
+    event.origin === "https://calendly.com" &&
+    typeof event.data === "object" &&
+    event.data?.event?.startsWith("calendly.")
+  );
+}
+
 export default function BookingCalendar() {
   const containerRef = useRef(null);
+  const [height, setHeight] = useState(INITIAL_HEIGHT);
 
   useEffect(() => {
     const parent = containerRef.current;
     if (!parent) return undefined;
 
     let cancelled = false;
+
+    function onMessage(event) {
+      if (!isCalendlyEvent(event)) return;
+      const nextHeight = event.data?.payload?.height;
+      if (event.data.event === "calendly.page_height" && nextHeight) {
+        setHeight(Math.max(INITIAL_HEIGHT, Number(nextHeight)));
+      }
+    }
+
+    window.addEventListener("message", onMessage);
 
     loadCalendlyAssets().then(() => {
       if (cancelled || !window.Calendly || !parent) return;
@@ -53,17 +74,18 @@ export default function BookingCalendar() {
 
     return () => {
       cancelled = true;
+      window.removeEventListener("message", onMessage);
       if (parent) parent.innerHTML = "";
     };
   }, []);
 
   return (
-    <div className="w-full min-w-0 overflow-x-hidden">
+    <div className="surface-card w-full min-w-0">
       <div
         ref={containerRef}
-        className="calendly-inline-widget w-full min-w-0 overflow-x-hidden"
+        className="calendly-inline-widget w-full min-w-0"
         data-url={bookingConfig.url}
-        style={{ minWidth: 0, minHeight: 720 }}
+        style={{ minWidth: 0, height, minHeight: INITIAL_HEIGHT }}
         title="Book a call with GEMCOP"
       />
     </div>

@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import { approachSteps, cta } from "../data/site.js";
-import { serviceSlots } from "../data/services.js";
+import { services } from "../data/services.js";
 import { portfolioPlaceholders } from "../data/portfolio.js";
 import { caseStudyPlaceholders } from "../data/caseStudies.js";
 import Button from "../components/Button.jsx";
@@ -65,14 +65,14 @@ export default function Home() {
             <SectionHeading
               eyebrow="Services"
               title="What we do"
-              description="Brand Building and Performance Marketing."
+              description="Brand Building, Performance Marketing, and Web & AI Solutions."
             />
             <Button to="/services" variant="secondary" className="self-start sm:self-auto">
               All services
             </Button>
           </div>
-          <div className="grid gap-4 md:grid-cols-3">
-            {serviceSlots.map((service, index) => (
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {services.map((service, index) => (
               <ServiceCard key={service.id} service={service} index={index} />
             ))}
           </div>

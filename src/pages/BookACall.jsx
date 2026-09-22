@@ -25,9 +25,9 @@ export default function BookACall() {
     <>
       <Seo
         title="Book a Call — GEMCOP"
-        description="Book a call with GEMCOP."
+        description="Book a call with GEMCOP. The scheduling calendar will be connected when GEMCOP provides its official booking details."
       />
-      <section className="container-site overflow-x-hidden py-16 sm:py-24">
+      <section className="container-site py-16 sm:py-24">
         <button
           type="button"
           onClick={handleBack}
@@ -36,15 +36,18 @@ export default function BookACall() {
           ← Back
         </button>
 
-        <div className="mt-10 max-w-3xl">
-          <SectionHeading
-            eyebrow="Book a call"
-            title="Book a call."
-            description="Select a date and time to schedule a call with GEMCOP. For email or WhatsApp, use Contact."
-          />
-        </div>
-
-        <div className="mt-12 w-full min-w-0 overflow-x-hidden">
+        <div className="mt-10 grid items-start gap-12 lg:grid-cols-[0.82fr_1.18fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Book a call"
+              title="Book a call."
+              description="Choose a date, then a time. Live availability will appear when GEMCOP’s official calendar is connected."
+            />
+            <p className="mt-8 max-w-md text-sm leading-relaxed text-muted">
+              This is a dedicated scheduling page, separate from Contact. For
+              email or WhatsApp, use the Contact page in the menu.
+            </p>
+          </div>
           <BookingCalendar />
         </div>
       </section>

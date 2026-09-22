@@ -102,7 +102,12 @@
   border-color: var(--color-line-dark);
 }
 
-.calendly-inline-widget,
+.calendly-inline-widget {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 .calendly-inline-widget iframe {
   max-width: 100%;
 }

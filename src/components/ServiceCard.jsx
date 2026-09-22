@@ -4,21 +4,6 @@ import { motion, useReducedMotion } from "framer-motion";
 export default function ServiceCard({ service, index = 0 }) {
   const reduceMotion = useReducedMotion();
 
-  if (service.reserved) {
-    return (
-      <motion.article
-        initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-        whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ delay: index * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="min-h-[220px] border border-dashed border-line/80 bg-transparent p-6 sm:min-h-[280px] sm:p-8"
-        aria-hidden="true"
-      >
-        <span className="text-xs tracking-[0.2em] text-gold">{service.number}</span>
-      </motion.article>
-    );
-  }
-
   return (
     <motion.article
       initial={reduceMotion ? false : { opacity: 0, y: 16 }}

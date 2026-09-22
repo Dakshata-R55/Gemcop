@@ -5,7 +5,7 @@
 export const bookingConfig = {
   path: "/book-a-call",
   provider: "calendly",
-  url: "https://calendly.com/gem-connect/30min",
+  url: "https://calendly.com/dharanee/30min",
   widgetScript: "https://assets.calendly.com/assets/external/widget.js",
   widgetCss: "https://assets.calendly.com/assets/external/widget.css",
 };
