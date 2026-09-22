@@ -13,6 +13,16 @@ export default function ServiceCard({ service, index = 0 }) {
       className="group surface-card p-6 transition-colors duration-300 hover:border-gold/40 sm:p-8"
     >
       <Link to="/services" className="flex h-full flex-col">
+        {service.media ? (
+          <div className="-mx-6 -mt-6 mb-6 overflow-hidden bg-ink sm:-mx-8 sm:-mt-8">
+            <img
+              src={service.media}
+              alt={service.mediaAlt || ""}
+              loading="lazy"
+              className="aspect-[16/10] h-auto w-full object-cover"
+            />
+          </div>
+        ) : null}
         <span className="text-xs tracking-[0.2em] text-gold">{service.number}</span>
         <h3 className="mt-6 flex-1 font-display text-3xl leading-tight">
           {service.name}

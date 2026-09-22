@@ -144,7 +144,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Selected work"
               title="Portfolio"
-              description="Selected projects will be added when GEMCOP supplies them. These cards are placeholders only."
+            description="Selected work."
             />
             <Button to="/portfolio" variant="secondary">
               View portfolio
@@ -168,7 +168,7 @@ export default function Home() {
             <SectionHeading
               eyebrow="Case studies"
               title="Case studies"
-              description="Case studies will be published when GEMCOP provides client, challenge, strategy, execution, and result details. No results are claimed here."
+              description="Visual work. Written case-study details will be added when provided by GEMCOP."
             />
           </div>
           <div className="grid gap-4">

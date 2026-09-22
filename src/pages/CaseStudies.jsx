@@ -14,7 +14,7 @@ export default function CaseStudies() {
         <SectionHeading
           eyebrow="Case studies"
           title="Case studies"
-          description="Each study is ready for Client, Challenge, Strategy, Execution, Result, and media. No results or client names have been invented."
+          description="Visual work. Written case-study details will be added when provided by GEMCOP."
         />
         <div className="mt-14 grid gap-4">
           {caseStudyPlaceholders.map((study, index) => (

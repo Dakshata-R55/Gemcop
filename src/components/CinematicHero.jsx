@@ -7,10 +7,10 @@ import Button from "./Button.jsx";
 gsap.registerPlugin(ScrollTrigger);
 
 const panels = [
-  { id: "a", label: "Visual pending", x: "-42vw", y: "-18vh", rotate: -8, z: 2 },
-  { id: "b", label: "Visual pending", x: "38vw", y: "-22vh", rotate: 7, z: 3 },
-  { id: "c", label: "Visual pending", x: "-36vw", y: "24vh", rotate: 5, z: 4 },
-  { id: "d", label: "Visual pending", x: "34vw", y: "20vh", rotate: -6, z: 2 },
+  { id: "a", image: "/assets/work/atm-7.jpg", alt: "Ashok Thanga Maaligai", x: "-42vw", y: "-18vh", rotate: -8, z: 2 },
+  { id: "b", image: "/assets/work/brigo-donne.jpg", alt: "BirGo", x: "38vw", y: "-22vh", rotate: 7, z: 3 },
+  { id: "c", image: "/assets/work/sdm-service-madurai.jpg", alt: "SDM Bikes", x: "-36vw", y: "24vh", rotate: 5, z: 4 },
+  { id: "d", image: "/assets/work/atm-16.jpg", alt: "Ashok Thanga Maaligai", x: "34vw", y: "20vh", rotate: -6, z: 2 },
 ];
 
 export default function CinematicHero() {
@@ -127,11 +127,14 @@ export default function CinematicHero() {
                 zIndex: panel.z,
               }}
             >
-              <div className="flex h-full items-center justify-center">
-                <p className="text-[0.65rem] uppercase tracking-[0.2em] text-muted">
-                  {panel.label}
-                </p>
-              </div>
+              {panel.image ? (
+                <img
+                  src={panel.image}
+                  alt=""
+                  aria-hidden="true"
+                  className="h-full w-full object-cover"
+                />
+              ) : null}
             </article>
           ))}
 

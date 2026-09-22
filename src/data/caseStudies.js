@@ -1,33 +1,18 @@
 /**
- * Case study placeholders. Structure is ready for real content.
- * Do not invent clients, results, or statistics.
+ * Visual work samples. Written case-study fields are omitted until GEMCOP provides them.
  */
 export const caseStudyPlaceholders = [
   {
-    id: "case-study-01",
-    client: "Client name pending",
-    challenge: "Challenge details will be provided by GEMCOP.",
-    strategy: "Strategy details will be provided by GEMCOP.",
-    execution: "Execution details will be provided by GEMCOP.",
-    result: "Results will be provided by GEMCOP.",
-    images: [],
+    id: "ashok-thanga-maaligai",
+    client: "Ashok Thanga Maaligai",
+    image: "/assets/work/atm-16.jpg",
+    alt: "Ashok Thanga Maaligai",
   },
   {
-    id: "case-study-02",
-    client: "Client name pending",
-    challenge: "Challenge details will be provided by GEMCOP.",
-    strategy: "Strategy details will be provided by GEMCOP.",
-    execution: "Execution details will be provided by GEMCOP.",
-    result: "Results will be provided by GEMCOP.",
-    images: [],
-  },
-  {
-    id: "case-study-03",
-    client: "Client name pending",
-    challenge: "Challenge details will be provided by GEMCOP.",
-    strategy: "Strategy details will be provided by GEMCOP.",
-    execution: "Execution details will be provided by GEMCOP.",
-    result: "Results will be provided by GEMCOP.",
-    images: [],
+    id: "sdm-bikes",
+    client: "SDM Bikes",
+    video: "/assets/work/sdm-service-madurai.mp4",
+    poster: "/assets/work/sdm-service-madurai.jpg",
+    alt: "SDM Bikes",
   },
 ];

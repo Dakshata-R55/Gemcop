@@ -14,7 +14,7 @@ export default function Portfolio() {
         <SectionHeading
           eyebrow="Portfolio"
           title="Portfolio"
-          description="These cards are structural placeholders. No projects have been invented."
+          description="Selected work."
         />
         <div className="mt-14 grid gap-4 md:grid-cols-2">
           {portfolioPlaceholders.map((item, index) => (
