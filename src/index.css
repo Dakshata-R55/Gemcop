@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cormorant Garamond", ui-serif, Georgia, serif;
+
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #141414;
+  --color-paper: #f6f4ef;
+  --color-paper-muted: #ece8e0;
+  --color-muted: #8a857c;
+  --color-gold: #b8944a;
+  --color-gold-soft: #d4bc7e;
+  --color-line: rgba(255, 255, 255, 0.12);
+  --color-line-dark: rgba(10, 10, 10, 0.12);
+
+  --shadow-elevated: 0 24px 60px rgba(0, 0, 0, 0.28);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-ink font-sans text-paper antialiased;
+    margin: 0;
+  }
+
+  #root {
+    min-height: 100vh;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--color-gold) 40%, transparent);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+
+  .eyebrow {
+    @apply text-[0.7rem] font-medium uppercase tracking-[0.28em] text-gold;
+  }
+
+  .display-title {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+  }
+
+  .muted {
+    @apply text-muted;
+  }
+
+  .surface-card {
+    @apply border border-line bg-ink-soft/80;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+}
