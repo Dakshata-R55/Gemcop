@@ -59,5 +59,6 @@ export const pageThemes = {
 };
 
 export function getPageTheme(pathname) {
+  if (pathname.startsWith("/services/")) return "dark";
   return pageThemes[pathname] ?? "dark";
 }

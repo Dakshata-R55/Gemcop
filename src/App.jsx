@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
 import Services from "./pages/Services.jsx";
+import ServiceDetail from "./pages/ServiceDetail.jsx";
 import Portfolio from "./pages/Portfolio.jsx";
 import CaseStudies from "./pages/CaseStudies.jsx";
 import Contact from "./pages/Contact.jsx";
@@ -14,6 +15,7 @@ export default function App() {
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/:serviceId" element={<ServiceDetail />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/contact" element={<Contact />} />

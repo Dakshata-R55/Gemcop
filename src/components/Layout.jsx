@@ -5,6 +5,7 @@ import Navbar from "./Navbar.jsx";
 import Footer from "./Footer.jsx";
 import WhatsAppButton from "./WhatsAppButton.jsx";
 import PageTransition from "./PageTransition.jsx";
+import IntroReel from "./IntroReel.jsx";
 
 export default function Layout() {
   const location = useLocation();
@@ -20,6 +21,7 @@ export default function Layout() {
       >
         Skip to content
       </a>
+      <IntroReel />
       <Navbar />
       <PageTransition />
       <main

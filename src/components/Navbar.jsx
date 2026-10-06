@@ -72,6 +72,7 @@ export default function Navbar() {
               <NavLink
                 key={link.to}
                 to={link.to}
+                end={link.to === "/"}
                 className={({ isActive }) =>
                   `text-[0.78rem] uppercase tracking-[0.16em] transition-colors duration-300 ${
                     isActive ? "text-gold" : "text-paper/80 hover:text-paper"
@@ -140,6 +141,7 @@ export default function Navbar() {
                   >
                     <NavLink
                       to={link.to}
+                      end={link.to === "/"}
                       onClick={() => setOpen(false)}
                       className={({ isActive }) =>
                         `block border-b border-line py-4 font-display text-4xl ${

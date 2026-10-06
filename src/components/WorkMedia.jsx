@@ -13,6 +13,11 @@ export default function WorkMedia({
     const node = videoRef.current;
     if (!node) return undefined;
 
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (reduceMotion) return undefined;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -38,6 +43,7 @@ export default function WorkMedia({
         loop
         playsInline
         preload="metadata"
+        aria-label={alt || undefined}
         className={className}
       />
     );
