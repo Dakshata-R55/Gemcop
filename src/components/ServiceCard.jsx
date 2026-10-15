@@ -1,84 +1,51 @@
 import { Link } from "react-router-dom";
-
 import { motion, useReducedMotion } from "framer-motion";
 
-
-
 export default function ServiceCard({ service, index = 0 }) {
-
   const reduceMotion = useReducedMotion();
-
   const href = service.href || `/services/${service.id}`;
 
-
-
   return (
-
     <motion.article
-
-      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
-
+      initial={reduceMotion ? false : { opacity: 0, y: 18 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-
-      viewport={{ once: true, amount: 0.25 }}
-
-      transition={{ delay: index * 0.05, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-
-      className="group surface-card p-6 transition-colors duration-300 hover:border-gold/40 sm:p-8"
-
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ delay: index * 0.06, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      className="border-b border-line"
     >
-
-      <Link to={href} className="flex h-full flex-col">
-
-        {service.media ? (
-
-          <div className="-mx-6 -mt-6 mb-6 overflow-hidden bg-ink sm:-mx-8 sm:-mt-8">
-
-            <img
-
-              src={service.media}
-
-              alt={service.mediaAlt || ""}
-
-              loading="lazy"
-
-              className="aspect-[16/10] h-auto w-full object-cover"
-
-            />
-
-          </div>
-
-        ) : null}
-
-        <span className="text-xs tracking-[0.2em] text-gold">{service.number}</span>
-
-        <h3 className="mt-6 flex-1 font-display text-3xl leading-tight">
-
-          {service.name}
-
-        </h3>
-
-        {service.description ? (
-
-          <p className="mt-4 text-sm leading-relaxed text-muted">
-
-            {service.description}
-
-          </p>
-
-        ) : null}
-
-        <span className="mt-8 text-[0.7rem] uppercase tracking-[0.2em] text-muted transition-colors group-hover:text-gold">
-
-          View Service
-
+      <Link
+        to={href}
+        className="group grid items-center gap-6 py-8 sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:gap-10 sm:py-12 lg:py-14"
+      >
+        <span className="text-[0.68rem] tracking-[0.24em] text-gold">
+          {service.number}
         </span>
-
+        <div className="min-w-0">
+          <h3 className="display-title text-[clamp(2.1rem,5.2vw,4.6rem)] transition-colors duration-500 group-hover:text-gold">
+            {service.name}
+          </h3>
+          {service.description ? (
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted sm:text-base">
+              {service.description}
+            </p>
+          ) : null}
+        </div>
+        <div className="flex items-center gap-6 sm:justify-end">
+          {service.media ? (
+            <div className="hidden overflow-hidden md:block md:w-36 lg:w-44">
+              <img
+                src={service.media}
+                alt={service.mediaAlt || ""}
+                loading="lazy"
+                className="aspect-[16/10] h-auto w-full object-cover opacity-60 transition duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105 group-hover:opacity-100"
+              />
+            </div>
+          ) : null}
+          <span className="text-[0.68rem] uppercase tracking-[0.22em] text-muted transition-colors duration-500 group-hover:text-gold">
+            View Service
+          </span>
+        </div>
       </Link>
-
     </motion.article>
-
   );
-
 }
-

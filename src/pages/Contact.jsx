@@ -10,7 +10,7 @@ export default function Contact() {
         title="Contact — GEMCOP"
         description="Contact GEMCOP by email or WhatsApp."
       />
-      <section className="container-site grid gap-14 py-16 sm:py-24 lg:grid-cols-[0.9fr_1.1fr]">
+      <section className="container-site grid gap-16 py-20 sm:py-28 lg:grid-cols-[0.9fr_1.1fr] lg:py-32">
         <div>
           <SectionHeading
             eyebrow="Contact"

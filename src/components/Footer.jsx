@@ -4,7 +4,7 @@ import { services as serviceItems } from "../data/services.js";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-ink">
+    <footer className="relative overflow-hidden border-t border-line bg-ink">
       <div className="container-site grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-4 lg:py-20">
         <div className="max-w-xs">
           <Link to="/" className="inline-block">
@@ -27,7 +27,7 @@ export default function Footer() {
               <li key={link.to}>
                 <Link
                   to={link.to}
-                  className="text-sm text-paper/80 transition-colors hover:text-gold"
+                  className="text-sm text-paper/80 transition-colors duration-500 hover:text-gold"
                 >
                   {link.label}
                 </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
               <li key={service.id}>
                 <Link
                   to={service.href || `/services/${service.id}`}
-                  className="text-sm text-paper/80 transition-colors hover:text-gold"
+                  className="text-sm text-paper/80 transition-colors duration-500 hover:text-gold"
                 >
                   {service.name}
                 </Link>
@@ -81,7 +81,7 @@ export default function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="text-sm text-paper/80 transition-colors hover:text-gold"
+                  className="text-sm text-paper/80 transition-colors duration-500 hover:text-gold"
                   aria-label={social.label}
                 >
                   {social.label}
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="container-site flex flex-col gap-4 border-t border-line py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-site relative z-[1] flex flex-col gap-4 border-t border-line py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} GEMCOP. All rights reserved.</p>
         <div className="flex gap-6">
           <Link to="/privacy" className="hover:text-gold">
@@ -102,6 +102,29 @@ export default function Footer() {
             Terms & Conditions
           </Link>
         </div>
+      </div>
+
+      <div className="pointer-events-none relative z-0 -mb-6 mt-2 overflow-hidden sm:-mb-10" aria-hidden="true">
+        <svg
+          viewBox="0 0 1200 220"
+          className="h-[clamp(4.5rem,18vw,13rem)] w-full"
+          preserveAspectRatio="xMidYMax meet"
+        >
+          <text
+            x="50%"
+            y="88%"
+            textAnchor="middle"
+            fill="none"
+            stroke="rgba(255,255,255,0.14)"
+            strokeWidth="2"
+            strokeDasharray="7 6"
+            fontFamily="Cormorant Garamond, Georgia, serif"
+            fontSize="200"
+            letterSpacing="-8"
+          >
+            GEMCOP
+          </text>
+        </svg>
       </div>
     </footer>
   );

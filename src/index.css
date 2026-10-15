@@ -6,9 +6,9 @@
 
   --color-ink: #0a0a0a;
   --color-ink-soft: #141414;
-  --color-paper: #f6f4ef;
-  --color-paper-muted: #ece8e0;
-  --color-muted: #8a857c;
+  --color-paper: #f4f4f2;
+  --color-paper-muted: #e8e8e6;
+  --color-muted: #8c8c8c;
   --color-gold: #b8944a;
   --color-gold-soft: #d4bc7e;
   --color-line: rgba(255, 255, 255, 0.12);
@@ -65,7 +65,7 @@
 
 @layer components {
   .container-site {
-    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
   }
 
   .eyebrow {
@@ -89,6 +89,17 @@
 
   .hairline {
     @apply h-px w-full bg-line;
+  }
+
+  .brand-shadow {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.06em;
+    line-height: 0.78;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+    text-stroke: 1px rgba(255, 255, 255, 0.1);
+    user-select: none;
   }
 }
 

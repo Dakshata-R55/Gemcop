@@ -10,13 +10,13 @@ export default function CaseStudies() {
         title="Case Studies — GEMCOP"
         description="GEMCOP case studies. Client stories and results will be added when provided by GEMCOP."
       />
-      <section className="container-site py-16 sm:py-24">
+      <section className="container-site py-20 sm:py-28 lg:py-32">
         <SectionHeading
           eyebrow="Case studies"
           title="Case studies"
           description="Visual work. Written case-study details will be added when provided by GEMCOP."
         />
-        <div className="mt-14 grid gap-4">
+        <div className="mt-16 grid gap-5">
           {caseStudyPlaceholders.map((study, index) => (
             <CaseStudyCard key={study.id} study={study} index={index} />
           ))}

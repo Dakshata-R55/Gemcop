@@ -10,13 +10,13 @@ export default function Portfolio() {
         title="Portfolio — GEMCOP"
         description="GEMCOP portfolio. Project details will be added when provided by GEMCOP."
       />
-      <section className="container-site py-16 sm:py-24">
+      <section className="container-site py-20 sm:py-28 lg:py-32">
         <SectionHeading
           eyebrow="Portfolio"
           title="Portfolio"
           description="Selected work."
         />
-        <div className="mt-14 grid gap-4 md:grid-cols-2">
+        <div className="mt-16 grid gap-5 md:grid-cols-2">
           {portfolioPlaceholders.map((item, index) => (
             <WorkCard key={item.id} item={item} featured={index === 0} />
           ))}

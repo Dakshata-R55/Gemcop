@@ -26,7 +26,7 @@ export default function PageTransition() {
         initial={{ opacity: 0.45 }}
         animate={{ opacity: 0 }}
         exit={{ opacity: 0.4 }}
-        transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         aria-hidden="true"
       >
         <div className="h-full w-full bg-ink" />

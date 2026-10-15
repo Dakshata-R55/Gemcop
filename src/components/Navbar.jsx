@@ -47,18 +47,16 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40">
       <div
-        className={`container-site flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "py-3" : "py-4"
+        className={`border-b transition-colors duration-500 ${
+          solidNav ? "border-line bg-ink/85 backdrop-blur-md" : "border-transparent bg-transparent"
         }`}
       >
         <div
-          className={`relative z-50 flex w-full items-center justify-between rounded-full border px-4 py-2 backdrop-blur-md sm:px-5 ${
-            solidNav
-              ? "border-line bg-ink/90"
-              : "border-transparent bg-ink/40"
-          }`}
+          className={`container-site flex items-center justify-between ${
+            scrolled ? "py-3.5" : "py-5"
+          } transition-all duration-500`}
         >
-          <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
+          <Link to="/" className="relative z-50 flex items-center" onClick={() => setOpen(false)}>
             <img
               src={site.logo}
               alt="GEMCOP"
@@ -67,15 +65,15 @@ export default function Navbar() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `text-[0.78rem] uppercase tracking-[0.16em] transition-colors duration-300 ${
-                    isActive ? "text-gold" : "text-paper/80 hover:text-paper"
+                  `text-[0.72rem] uppercase tracking-[0.2em] transition-colors duration-500 ${
+                    isActive ? "text-gold" : "text-paper/70 hover:text-paper"
                   }`
                 }
               >
@@ -92,7 +90,7 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-paper lg:hidden"
+            className="relative z-50 flex h-10 w-10 items-center justify-center border border-line text-paper lg:hidden"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -101,17 +99,17 @@ export default function Navbar() {
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <span className="relative block h-3.5 w-5">
               <span
-                className={`absolute left-0 h-px w-full bg-paper transition-all duration-300 ${
+                className={`absolute left-0 h-px w-full bg-paper transition-all duration-500 ${
                   open ? "top-1.5 rotate-45" : "top-0"
                 }`}
               />
               <span
-                className={`absolute left-0 top-1.5 h-px w-full bg-paper transition-opacity duration-300 ${
+                className={`absolute left-0 top-1.5 h-px w-full bg-paper transition-opacity duration-500 ${
                   open ? "opacity-0" : "opacity-100"
                 }`}
               />
               <span
-                className={`absolute left-0 h-px w-full bg-paper transition-all duration-300 ${
+                className={`absolute left-0 h-px w-full bg-paper transition-all duration-500 ${
                   open ? "top-1.5 -rotate-45" : "top-3"
                 }`}
               />
@@ -128,23 +126,23 @@ export default function Navbar() {
             initial={reduceMotion ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduceMotion ? { opacity: 1 } : { opacity: 0 }}
-            transition={{ duration: 0.28 }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="container-site flex h-full flex-col pt-24">
-              <nav className="flex flex-col gap-2" aria-label="Mobile">
+            <div className="container-site flex h-full flex-col pt-28">
+              <nav className="flex flex-col" aria-label="Mobile">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.to}
-                    initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+                    initial={reduceMotion ? false : { opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.05 * index, duration: 0.35 }}
+                    transition={{ delay: 0.05 * index, duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
                   >
                     <NavLink
                       to={link.to}
                       end={link.to === "/"}
                       onClick={() => setOpen(false)}
                       className={({ isActive }) =>
-                        `block border-b border-line py-4 font-display text-4xl ${
+                        `block border-b border-line py-5 font-display text-4xl ${
                           isActive ? "text-gold" : "text-paper"
                         }`
                       }
@@ -154,7 +152,7 @@ export default function Navbar() {
                   </motion.div>
                 ))}
               </nav>
-              <div className="mt-8">
+              <div className="mt-10">
                 <Button to={cta.to} variant="gold" onClick={() => setOpen(false)}>
                   {cta.label}
                 </Button>

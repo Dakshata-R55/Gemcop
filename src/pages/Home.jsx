@@ -41,7 +41,7 @@ export default function Home() {
         <CinematicHero />
       </HomeBand>
 
-      <HomeBand tone="light" className="py-20 sm:py-28">
+      <HomeBand tone="light" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionHeading eyebrow="Introduction" title="About GEMCOP" />
           <Reveal delay={0.1}>
@@ -59,7 +59,7 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="dark" className="py-20 sm:py-28">
+      <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
           <div className="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
@@ -71,7 +71,7 @@ export default function Home() {
               All services
             </Button>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+          <div className="mt-4 border-t border-line">
             {services.map((service, index) => (
               <ServiceCard key={service.id} service={service} index={index} />
             ))}
@@ -79,7 +79,7 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="light" className="py-20 sm:py-28">
+      <HomeBand tone="light" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
           <SectionHeading
             eyebrow="Approach"
@@ -108,37 +108,29 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="dark" className="py-20 sm:py-28">
+      <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
           <SectionHeading
             eyebrow="Method"
             title="A disciplined approach"
             description="GEMCOP says it works closely with clients to understand their business, challenges, and goals, then applies a clear and disciplined approach focused on execution and meaningful results."
           />
-          <ol className="mt-14 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-end">
+          <ol className="mt-16 border-t border-line">
             {approachSteps.map((step, index) => (
-              <li key={step} className="flex items-end gap-6">
-                <Reveal delay={index * 0.05}>
-                  <span className="text-xs tracking-[0.2em] text-gold">
+              <li key={step} className="border-b border-line">
+                <Reveal delay={index * 0.04} className="flex items-baseline justify-between gap-6 py-6 sm:py-8">
+                  <p className="display-title text-[clamp(1.8rem,3.5vw,3rem)]">{step}</p>
+                  <span className="text-[0.68rem] tracking-[0.22em] text-gold">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <p className="mt-3 font-display text-3xl sm:text-4xl">{step}</p>
                 </Reveal>
-                {index < approachSteps.length - 1 ? (
-                  <span
-                    aria-hidden="true"
-                    className="mb-2 hidden font-display text-3xl text-gold sm:inline"
-                  >
-                    →
-                  </span>
-                ) : null}
               </li>
             ))}
           </ol>
         </div>
       </HomeBand>
 
-      <HomeBand tone="light" className="py-20 sm:py-28">
+      <HomeBand tone="light" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
           <div className="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
@@ -150,7 +142,7 @@ export default function Home() {
               View portfolio
             </Button>
           </div>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-5 md:grid-cols-2">
             {portfolioPlaceholders.slice(0, 3).map((item, index) => (
               <WorkCard
                 key={`${item.id}-${location.pathname}-${index}`}
@@ -162,7 +154,7 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="dark" className="py-20 sm:py-28">
+      <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
           <div className="mb-12 sm:mb-16">
             <SectionHeading
@@ -185,7 +177,7 @@ export default function Home() {
       </HomeBand>
 
       <HomeBand tone="light">
-        <div className="container-site py-20 sm:py-28">
+        <div className="container-site py-24 sm:py-32 lg:py-40">
           <Reveal>
             <p className="eyebrow">Start a conversation</p>
             <h2 className="display-title mt-5 max-w-4xl text-[clamp(2.6rem,7vw,6rem)]">

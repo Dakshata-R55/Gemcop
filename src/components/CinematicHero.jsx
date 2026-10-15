@@ -65,7 +65,7 @@ export default function CinematicHero() {
 
   return (
     <div ref={rootRef} className="relative overflow-hidden">
-      <div className="relative flex min-h-[100svh] items-end overflow-hidden pb-16 pt-8 lg:items-center lg:pb-24 lg:pt-10">
+      <div className="relative flex min-h-[100svh] items-end overflow-hidden pb-20 pt-10 lg:items-center lg:pb-28 lg:pt-12">
         <div className="cine-stage pointer-events-none absolute inset-0">
           <div className="cine-icon absolute left-1/2 top-[38%] z-10 w-[min(70%,18rem)] -translate-x-1/2 -translate-y-1/2 sm:top-[42%] sm:w-[min(58%,22rem)] lg:left-auto lg:right-[-4%] lg:top-1/2 lg:w-[min(50vw,38rem)] lg:translate-x-0">
             <img
@@ -76,7 +76,7 @@ export default function CinematicHero() {
             />
             <div
               aria-hidden="true"
-              className="absolute left-[10%] top-[12%] h-[76%] w-[76%] border border-gold/25"
+              className="absolute left-[10%] top-[12%] h-[76%] w-[76%] border border-white/10"
             />
             <img
               src={site.icon}
@@ -87,15 +87,15 @@ export default function CinematicHero() {
         </div>
 
         <div className="cine-copy container-site relative z-20 w-full">
-          <div className="max-w-xl lg:max-w-[34rem]">
+          <div className="max-w-xl lg:max-w-[36rem]">
             <p className="eyebrow">{site.name}</p>
-            <h1 className="display-title mt-6 text-[clamp(2.6rem,7vw,5.6rem)]">
+            <h1 className="display-title mt-8 text-[clamp(3rem,8vw,6.4rem)]">
               {site.brandLine}
             </h1>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-muted">
+            <p className="mt-8 max-w-md text-base leading-relaxed text-muted sm:text-lg">
               Structured growth systems — not isolated marketing output.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-12 flex flex-wrap gap-4">
               <Button to={cta.to} variant="gold">
                 {cta.label}
               </Button>

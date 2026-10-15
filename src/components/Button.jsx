@@ -17,7 +17,7 @@ export default function Button({
   type = "button",
   ...props
 }) {
-  const classes = `inline-flex items-center justify-center gap-2 px-6 py-3 text-[0.78rem] font-medium uppercase tracking-[0.18em] transition-colors duration-300 ${variants[variant]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[0.72rem] font-medium uppercase tracking-[0.2em] transition-colors duration-500 ${variants[variant]} ${className}`;
 
   if (to) {
     return (

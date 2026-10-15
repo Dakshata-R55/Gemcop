@@ -27,7 +27,7 @@ export default function BookACall() {
         title="Book a Call — GEMCOP"
         description="Book a call with GEMCOP. The scheduling calendar will be connected when GEMCOP provides its official booking details."
       />
-      <section className="container-site py-16 sm:py-24">
+      <section className="container-site py-20 sm:py-28 lg:py-32">
         <button
           type="button"
           onClick={handleBack}

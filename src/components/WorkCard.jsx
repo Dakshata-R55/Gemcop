@@ -16,20 +16,23 @@ export default function WorkCard({
             featured ? "aspect-[4/5] md:aspect-[16/10]" : "aspect-[3/4]"
           }`}
         >
-          {hasMedia ? (
-            <WorkMedia
-              image={item.image}
-              video={item.video}
-              poster={item.poster}
-              alt={item.name}
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center">
-              <span className="text-xs uppercase tracking-[0.22em] text-muted">
-                {placeholderLabel}
-              </span>
-            </div>
-          )}
+          <div className="h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]">
+            {hasMedia ? (
+              <WorkMedia
+                image={item.image}
+                video={item.video}
+                poster={item.poster}
+                alt={item.name}
+                className="h-full w-full object-contain"
+              />
+            ) : (
+              <div className="flex h-full w-full items-center justify-center">
+                <span className="text-xs uppercase tracking-[0.22em] text-muted">
+                  {placeholderLabel}
+                </span>
+              </div>
+            )}
+          </div>
         </div>
         <div className="flex flex-col gap-2 p-6 sm:p-7">
           {item.category ? (
