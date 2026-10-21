@@ -1,4 +1,6 @@
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { approachSteps, cta } from "../data/site.js";
 import { services } from "../data/services.js";
 import { portfolioPlaceholders } from "../data/portfolio.js";
@@ -11,6 +13,74 @@ import ServiceCard from "../components/ServiceCard.jsx";
 import WorkCard from "../components/WorkCard.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
 import CinematicHero from "../components/CinematicHero.jsx";
+
+const quickNavItems = [
+  { label: "Services", to: "/services", description: "What we offer" },
+  { label: "Case Studies", to: "/case-studies", description: "Real results" },
+  { label: "Portfolio", to: "/portfolio", description: "Selected work" },
+  { label: "Contact", to: "/contact", description: "Get in touch" },
+];
+
+function HorizontalNav() {
+  return (
+    <div className="border-t border-b border-line bg-ink">
+      <div className="container-site">
+        <nav
+          aria-label="Quick navigation"
+          className="flex flex-wrap divide-x divide-line"
+        >
+          {quickNavItems.map((item, index) => (
+            <motion.div
+              key={item.to}
+              className="flex-1 min-w-[140px]"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.08, duration: 0.4 }}
+            >
+              <Link
+                to={item.to}
+                className="group relative flex flex-col gap-1 px-6 py-6 sm:px-8 sm:py-7 transition-colors duration-300 hover:bg-ink-soft"
+              >
+                {/* gold underline slide animation */}
+                <span
+                  className="absolute bottom-0 left-0 h-[2px] w-0 bg-gold transition-all duration-400 group-hover:w-full"
+                  aria-hidden="true"
+                />
+                <span className="flex items-center gap-2">
+                  <span className="text-[0.65rem] uppercase tracking-[0.22em] text-gold font-medium">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  {/* arrow icon */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    className="w-3 h-3 text-gold opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 8h10M9 4l4 4-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </span>
+                <span className="font-display text-xl sm:text-2xl text-paper transition-colors duration-300 group-hover:text-gold" style={{ fontWeight: 500, letterSpacing: "-0.02em" }}>
+                  {item.label}
+                </span>
+                <span className="text-[0.72rem] text-muted tracking-wide uppercase">
+                  {item.description}
+                </span>
+              </Link>
+            </motion.div>
+          ))}
+        </nav>
+      </div>
+    </div>
+  );
+}
 
 function HomeBand({ tone, first = false, className = "", children }) {
   const isLight = tone === "light";
@@ -40,6 +110,8 @@ export default function Home() {
       <HomeBand tone="dark" first className="relative">
         <CinematicHero />
       </HomeBand>
+
+      <HorizontalNav />
 
       <HomeBand tone="light" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
