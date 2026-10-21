@@ -7,3 +7,5 @@ dist
 !.env.example
 client-media
 GEMCOP-Hostinger.zip
+GEMCOP-Hostinger-upload.zip
+GEMCOP-Hostinger-public-html.zip
