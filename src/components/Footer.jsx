@@ -92,6 +92,57 @@ export default function Footer() {
         </div>
       </div>
 
+      {/* ── Animated Montserrat wordmark ── */}
+      <style>{`
+        @keyframes dashMove {
+          from { stroke-dashoffset: 0; }
+          to   { stroke-dashoffset: -48; }
+        }
+        .gemcop-march {
+          animation: dashMove 6s linear infinite;
+        }
+      `}</style>
+
+      {/* Wordmark block — no top border, sits flush after nav grid */}
+      <div className="relative overflow-hidden" aria-hidden="true">
+        {/* SVG wordmark */}
+        <svg
+          viewBox="0 0 1400 280"
+          className="w-full block"
+          style={{ height: "clamp(5rem,22vw,17rem)" }}
+          preserveAspectRatio="xMidYMax meet"
+        >
+          {/* White marching dashes — square-ended for crisp edges */}
+          <text
+            x="50%"
+            y="92%"
+            textAnchor="middle"
+            fill="none"
+            stroke="rgba(255,255,255,0.45)"
+            strokeWidth="1.8"
+            strokeDasharray="14 10"
+            strokeLinecap="butt"
+            fontFamily="'Poppins', sans-serif"
+            fontWeight="900"
+            fontSize="260"
+            letterSpacing="-4"
+            className="gemcop-march"
+          >
+            Gemcòp
+          </text>
+        </svg>
+
+        {/* Bottom shadow fade — like the reference screenshot */}
+        <div
+          className="pointer-events-none absolute bottom-0 left-0 w-full"
+          style={{
+            height: "55%",
+            background: "linear-gradient(to bottom, transparent 0%, #0a0a0a 100%)",
+          }}
+        />
+      </div>
+
+      {/* ── Legal bar — below the wordmark ── */}
       <div className="container-site relative z-[1] flex flex-col gap-4 border-t border-line py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} GEMCOP. All rights reserved.</p>
         <div className="flex gap-6">
@@ -99,32 +150,9 @@ export default function Footer() {
             Privacy Policy
           </Link>
           <Link to="/terms" className="hover:text-gold">
-            Terms & Conditions
+            Terms &amp; Conditions
           </Link>
         </div>
-      </div>
-
-      <div className="pointer-events-none relative z-0 -mb-6 mt-2 overflow-hidden sm:-mb-10" aria-hidden="true">
-        <svg
-          viewBox="0 0 1200 220"
-          className="h-[clamp(4.5rem,18vw,13rem)] w-full"
-          preserveAspectRatio="xMidYMax meet"
-        >
-          <text
-            x="50%"
-            y="88%"
-            textAnchor="middle"
-            fill="none"
-            stroke="rgba(255,255,255,0.14)"
-            strokeWidth="2"
-            strokeDasharray="7 6"
-            fontFamily="Cormorant Garamond, Georgia, serif"
-            fontSize="200"
-            letterSpacing="-8"
-          >
-            GEMCOP
-          </text>
-        </svg>
       </div>
     </footer>
   );
