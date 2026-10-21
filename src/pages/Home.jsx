@@ -71,9 +71,14 @@ export default function Home() {
               All services
             </Button>
           </div>
-          <div className="mt-4 border-t border-line">
+          <div className="grid gap-5 md:grid-cols-2">
             {services.map((service, index) => (
-              <ServiceCard key={service.id} service={service} index={index} />
+              <ServiceCard
+                key={service.id}
+                service={service}
+                index={index}
+                className={index === 2 ? "md:col-span-2" : ""}
+              />
             ))}
           </div>
         </div>

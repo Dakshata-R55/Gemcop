@@ -16,9 +16,14 @@ export default function Services() {
           title="Our services"
           description="Brand Building, Performance Marketing, and Web & AI Solutions."
         />
-        <div className="mt-16 border-t border-line">
+        <div className="mt-16 grid gap-5 md:grid-cols-2">
           {services.map((service, index) => (
-            <ServiceCard key={service.id} service={service} index={index} />
+            <ServiceCard
+              key={service.id}
+              service={service}
+              index={index}
+              className={index === 2 ? "md:col-span-2" : ""}
+            />
           ))}
         </div>
       </section>
