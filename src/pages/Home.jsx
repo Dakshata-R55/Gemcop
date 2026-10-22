@@ -113,7 +113,7 @@ export default function Home() {
 
       <HorizontalNav />
 
-      <HomeBand tone="light" className="pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20 lg:pb-40">
+      <HomeBand tone="light" className="pt-2 pb-24 sm:pb-32 lg:pb-40">
         <div className="container-site grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <SectionHeading eyebrow="Introduction" title="About GEMCOP" />
           <Reveal delay={0.1}>

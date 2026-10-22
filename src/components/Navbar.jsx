@@ -12,6 +12,7 @@ export default function Navbar() {
   const location = useLocation();
   const theme = getPageTheme(location.pathname);
   const solidNav = scrolled || theme === "light";
+  const isGlass = scrolled;
   const { lenis } = useSmoothScroll();
 
   useEffect(() => {
@@ -47,16 +48,30 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40">
       <div
-        className={`container-site flex items-center justify-between transition-all duration-300 ${
-          scrolled ? "py-3" : "py-4"
+        className={`container-site flex items-center justify-between transition-all duration-500 ${
+          scrolled ? "py-2" : "py-4"
         }`}
       >
         <div
-          className={`relative z-50 flex w-full items-center justify-between rounded-full border px-4 py-2 backdrop-blur-md sm:px-5 ${
-            solidNav
-              ? "border-line bg-ink/90"
-              : "border-transparent bg-ink/40"
-          }`}
+          className={`relative z-50 flex w-full items-center justify-between rounded-full border px-4 py-2 sm:px-5
+            transition-all duration-500 ease-in-out
+            ${
+              isGlass
+                ? "border-white/10 shadow-[0_4px_32px_rgba(0,0,0,0.45)] shadow-inner"
+                : theme === "light"
+                ? "border-black/10 shadow-[0_2px_16px_rgba(0,0,0,0.12)]"
+                : "border-white/5"
+            }`}
+          style={{
+            backdropFilter: isGlass ? "blur(20px) saturate(160%)" : theme === "light" ? "blur(16px) saturate(140%)" : "blur(8px)",
+            WebkitBackdropFilter: isGlass ? "blur(20px) saturate(160%)" : theme === "light" ? "blur(16px) saturate(140%)" : "blur(8px)",
+            background: isGlass
+              ? "rgba(10, 10, 10, 0.40)"
+              : theme === "light"
+              ? "rgba(255, 255, 255, 0.40)"
+              : "rgba(10, 10, 10, 0.18)",
+            transition: "background 500ms ease, border-color 500ms ease, box-shadow 500ms ease, backdrop-filter 500ms ease",
+          }}
         >
           <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
             <img
@@ -75,7 +90,11 @@ export default function Navbar() {
                 end={link.to === "/"}
                 className={({ isActive }) =>
                   `text-[0.78rem] uppercase tracking-[0.16em] transition-colors duration-300 ${
-                    isActive ? "text-gold" : "text-paper/80 hover:text-paper"
+                    isActive
+                      ? "text-gold"
+                      : theme === "light"
+                      ? "text-ink/80 hover:text-ink"
+                      : "text-paper/80 hover:text-paper"
                   }`
                 }
               >
@@ -92,7 +111,9 @@ export default function Navbar() {
 
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-paper lg:hidden"
+            className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
+              theme === "light" ? "border-black/20 text-ink" : "border-white/20 text-paper"
+            }`}
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -101,19 +122,19 @@ export default function Navbar() {
             <span className="sr-only">{open ? "Close menu" : "Open menu"}</span>
             <span className="relative block h-3.5 w-5">
               <span
-                className={`absolute left-0 h-px w-full bg-paper transition-all duration-300 ${
-                  open ? "top-1.5 rotate-45" : "top-0"
-                }`}
+                className={`absolute left-0 h-px w-full transition-all duration-300 ${
+                  theme === "light" ? "bg-ink" : "bg-paper"
+                } ${open ? "top-1.5 rotate-45" : "top-0"}`}
               />
               <span
-                className={`absolute left-0 top-1.5 h-px w-full bg-paper transition-opacity duration-300 ${
-                  open ? "opacity-0" : "opacity-100"
-                }`}
+                className={`absolute left-0 top-1.5 h-px w-full transition-opacity duration-300 ${
+                  theme === "light" ? "bg-ink" : "bg-paper"
+                } ${open ? "opacity-0" : "opacity-100"}`}
               />
               <span
-                className={`absolute left-0 h-px w-full bg-paper transition-all duration-300 ${
-                  open ? "top-1.5 -rotate-45" : "top-3"
-                }`}
+                className={`absolute left-0 h-px w-full transition-all duration-300 ${
+                  theme === "light" ? "bg-ink" : "bg-paper"
+                } ${open ? "top-1.5 -rotate-45" : "top-3"}`}
               />
             </span>
           </button>
