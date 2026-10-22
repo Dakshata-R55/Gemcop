@@ -112,6 +112,18 @@ export default function Footer() {
           style={{ height: "clamp(5rem,22vw,17rem)" }}
           preserveAspectRatio="xMidYMax meet"
         >
+          <defs>
+            <filter id="gemcop-shadow" x="-5%" y="-5%" width="110%" height="140%">
+              {/* Drop shadow 20% below the text baseline */}
+              <feDropShadow
+                dx="0"
+                dy="0.2em"
+                stdDeviation="6"
+                floodColor="rgba(0,0,0,0.85)"
+              />
+            </filter>
+          </defs>
+
           {/* White marching dashes — square-ended for crisp edges */}
           <text
             x="50%"
@@ -126,24 +138,25 @@ export default function Footer() {
             fontWeight="900"
             fontSize="260"
             letterSpacing="-4"
+            filter="url(#gemcop-shadow)"
             className="gemcop-march"
           >
             Gemcòp
           </text>
         </svg>
 
-        {/* Bottom shadow fade — like the reference screenshot */}
+        {/* Bottom shadow fade — increased to 75% for deeper fade */}
         <div
           className="pointer-events-none absolute bottom-0 left-0 w-full"
           style={{
-            height: "55%",
+            height: "75%",
             background: "linear-gradient(to bottom, transparent 0%, #0a0a0a 100%)",
           }}
         />
       </div>
 
       {/* ── Legal bar — below the wordmark ── */}
-      <div className="container-site relative z-[1] flex flex-col gap-4 border-t border-line py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
+      <div className="container-site relative z-[1] flex flex-col gap-4 py-6 text-xs text-muted sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} GEMCOP. All rights reserved.</p>
         <div className="flex gap-6">
           <Link to="/privacy" className="hover:text-gold">

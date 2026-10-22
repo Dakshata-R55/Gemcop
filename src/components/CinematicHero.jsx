@@ -24,15 +24,15 @@ export default function CinematicHero() {
         scrollTrigger: {
           trigger: root,
           start: "top top",
-          end: "+=90%",
+          end: "+=40%",
           pin: true,
-          scrub: 0.7,
+          scrub: 0.5,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
       });
 
-      tl.to(".cine-icon", { y: 18, rotate: 2, ease: "none" }, 0);
+      tl.to(".cine-icon", { y: 8, rotate: 1, ease: "none" }, 0);
     });
 
     mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
@@ -40,9 +40,9 @@ export default function CinematicHero() {
         scrollTrigger: {
           trigger: root,
           start: "top top",
-          end: "+=160%",
+          end: "+=60%",
           pin: true,
-          scrub: 0.85,
+          scrub: 0.6,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -50,12 +50,12 @@ export default function CinematicHero() {
 
       tl.fromTo(
         ".cine-icon",
-        { scale: 1.04, rotate: -5 },
-        { scale: 1, rotate: 1.5, ease: "none" },
+        { scale: 1.02, rotate: -3 },
+        { scale: 1, rotate: 0.8, ease: "none" },
         0,
       );
 
-      tl.to(".cine-copy", { y: -16, ease: "none" }, 0);
+      tl.to(".cine-copy", { y: -8, ease: "none" }, 0);
     });
 
     ScrollTrigger.refresh();

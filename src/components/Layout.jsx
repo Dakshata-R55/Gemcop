@@ -14,7 +14,7 @@ export default function Layout() {
   const isLight = theme === "light";
 
   return (
-    <div className="flex min-h-screen flex-col overflow-x-hidden bg-ink">
+    <div className="flex min-h-screen flex-col bg-ink">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[60] focus:bg-gold focus:px-4 focus:py-2 focus:text-ink"
@@ -23,6 +23,8 @@ export default function Layout() {
       </a>
       <IntroReel />
       <Navbar />
+      {/* Spacer to offset fixed navbar height so content isn't hidden behind it */}
+      <div className="h-[60px] shrink-0" aria-hidden="true" />
       <PageTransition />
       <main
         id="main-content"
