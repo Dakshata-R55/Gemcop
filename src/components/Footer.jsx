@@ -134,14 +134,14 @@ export default function Footer() {
             strokeWidth="1.8"
             strokeDasharray="14 10"
             strokeLinecap="butt"
-            fontFamily="'Poppins', sans-serif"
-            fontWeight="900"
+            fontFamily="'Nohemi', 'Montserrat', sans-serif"
+            fontWeight="800"
             fontSize="260"
             letterSpacing="-4"
             filter="url(#gemcop-shadow)"
             className="gemcop-march"
           >
-            Gemcòp
+            GEMCOP
           </text>
         </svg>
 
