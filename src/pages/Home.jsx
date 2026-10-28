@@ -165,17 +165,26 @@ export default function Home() {
           />
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
             <Reveal>
-              <p className="font-display text-3xl leading-snug sm:text-4xl">
+              <p
+                className="text-3xl leading-snug sm:text-4xl"
+                style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700 }}
+              >
                 Sustainable growth over isolated campaigns.
               </p>
-              <p className="mt-6 text-base leading-relaxed text-muted sm:text-lg">
+              <p
+                className="mt-6 text-base leading-relaxed text-muted sm:text-lg"
+                style={{ fontFamily: "'Archivo', sans-serif" }}
+              >
                 Its public messaging emphasizes positioning, content strategy,
                 performance systems, digital transformation, and long-term
                 business growth.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="text-base leading-relaxed sm:text-lg">
+              <p
+                className="text-base leading-relaxed sm:text-lg"
+                style={{ fontFamily: "'Archivo', sans-serif" }}
+              >
                 GEMCOP describes growth as something that should be deliberately
                 built through clear positioning, strong narratives, distribution
                 systems, and business alignment.
