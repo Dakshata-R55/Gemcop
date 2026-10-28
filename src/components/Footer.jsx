@@ -134,7 +134,7 @@ export default function Footer() {
             strokeWidth="1.8"
             strokeDasharray="14 10"
             strokeLinecap="butt"
-            fontFamily="'Nohemi', 'Montserrat', sans-serif"
+            fontFamily="'Archivo', sans-serif"
             fontWeight="800"
             fontSize="260"
             letterSpacing="-4"
