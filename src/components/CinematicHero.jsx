@@ -3,6 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cta, site } from "../data/site.js";
 import Button from "./Button.jsx";
+import GoldenBeamAnimation from "./GoldenBeamAnimation.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -66,6 +67,7 @@ export default function CinematicHero() {
   return (
     <div ref={rootRef} className="relative overflow-hidden">
       <div className="relative flex min-h-[82svh] lg:min-h-[85svh] items-end overflow-hidden pb-8 pt-4 lg:items-center lg:pb-12 lg:pt-6">
+        <GoldenBeamAnimation />
         <div className="cine-stage pointer-events-none absolute inset-0">
           <div className="cine-icon absolute left-1/2 top-[38%] z-10 w-[min(70%,18rem)] -translate-x-1/2 -translate-y-1/2 sm:top-[42%] sm:w-[min(58%,22rem)] lg:left-auto lg:right-[-4%] lg:top-1/2 lg:w-[min(50vw,38rem)] lg:translate-x-0">
             <img
