@@ -45,15 +45,15 @@ export const cta = {
   to: "/book-a-call",
 };
 
-/** Home is dark; Services and Case Studies are light. */
+/** Entire theme is light, except where videos/pics are showcased (case studies). */
 export const pageThemes = {
-  "/": "dark",
+  "/": "light",
   "/services": "light",
-  "/case-studies": "light",
-  "/contact": "dark",
-  "/book-a-call": "dark",
-  "/privacy": "dark",
-  "/terms": "dark",
+  "/case-studies": "dark",
+  "/contact": "light",
+  "/book-a-call": "light",
+  "/privacy": "light",
+  "/terms": "light",
 };
 
 export function getPageTheme(pathname) {

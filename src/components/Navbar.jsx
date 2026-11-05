@@ -11,7 +11,8 @@ export default function Navbar() {
   const reduceMotion = useReducedMotion();
   const location = useLocation();
   const theme = getPageTheme(location.pathname);
-  const solidNav = scrolled || theme === "light";
+  const isHeroDark = (location.pathname === "/" && !scrolled);
+  const isLightNav = !isHeroDark;
   const isGlass = scrolled;
   const { lenis } = useSmoothScroll();
 
@@ -56,20 +57,16 @@ export default function Navbar() {
           className={`relative z-50 flex w-full items-center justify-between rounded-full border px-3.5 py-1.5 sm:px-5 sm:py-1.5
             transition-all duration-500 ease-in-out
             ${
-              isGlass
-                ? "border-white/10 shadow-[0_4px_32px_rgba(0,0,0,0.45)] shadow-inner"
-                : theme === "light"
-                ? "border-black/10 shadow-[0_2px_16px_rgba(0,0,0,0.12)]"
-                : "border-white/5"
+              isLightNav
+                ? "border-black/10 shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
+                : "border-white/10"
             }`}
           style={{
-            backdropFilter: isGlass ? "blur(20px) saturate(160%)" : theme === "light" ? "blur(16px) saturate(140%)" : "blur(8px)",
-            WebkitBackdropFilter: isGlass ? "blur(20px) saturate(160%)" : theme === "light" ? "blur(16px) saturate(140%)" : "blur(8px)",
-            background: isGlass
-              ? "rgba(10, 10, 10, 0.40)"
-              : theme === "light"
-              ? "rgba(255, 255, 255, 0.40)"
-              : "rgba(10, 10, 10, 0.18)",
+            backdropFilter: isLightNav ? "blur(20px) saturate(160%)" : "blur(10px)",
+            WebkitBackdropFilter: isLightNav ? "blur(20px) saturate(160%)" : "blur(10px)",
+            background: isLightNav
+              ? "rgba(255, 255, 255, 0.85)"
+              : "rgba(10, 10, 10, 0.25)",
             transition: "background 500ms ease, border-color 500ms ease, box-shadow 500ms ease, backdrop-filter 500ms ease",
           }}
         >
@@ -77,8 +74,8 @@ export default function Navbar() {
             <img
               src={site.logo}
               alt="GEMCOP"
-              className="h-6 w-auto object-contain object-left sm:h-7"
-              style={{ filter: "invert(1)" }}
+              className="h-6 w-auto object-contain object-left sm:h-7 transition-all duration-300"
+              style={{ filter: isLightNav ? "none" : "invert(1)" }}
             />
           </Link>
 
@@ -92,7 +89,7 @@ export default function Navbar() {
                   `text-[0.72rem] uppercase tracking-[0.14em] transition-colors duration-300 ${
                     isActive
                       ? "text-gold"
-                      : theme === "light"
+                      : isLightNav
                       ? "text-ink/80 hover:text-ink"
                       : "text-paper/80 hover:text-paper"
                   }`
@@ -116,7 +113,7 @@ export default function Navbar() {
           <button
             type="button"
             className={`flex h-8 w-8 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
-              theme === "light" ? "border-black/20 text-ink" : "border-white/20 text-paper"
+              isLightNav ? "border-black/20 text-ink" : "border-white/20 text-paper"
             }`}
             aria-expanded={open}
             aria-controls="mobile-menu"
@@ -127,17 +124,17 @@ export default function Navbar() {
             <span className="relative block h-3.5 w-5">
               <span
                 className={`absolute left-0 h-px w-full transition-all duration-300 ${
-                  theme === "light" ? "bg-ink" : "bg-paper"
+                  isLightNav ? "bg-ink" : "bg-paper"
                 } ${open ? "top-1.5 rotate-45" : "top-0"}`}
               />
               <span
                 className={`absolute left-0 top-1.5 h-px w-full transition-opacity duration-300 ${
-                  theme === "light" ? "bg-ink" : "bg-paper"
+                  isLightNav ? "bg-ink" : "bg-paper"
                 } ${open ? "opacity-0" : "opacity-100"}`}
               />
               <span
                 className={`absolute left-0 h-px w-full transition-all duration-300 ${
-                  theme === "light" ? "bg-ink" : "bg-paper"
+                  isLightNav ? "bg-ink" : "bg-paper"
                 } ${open ? "top-1.5 -rotate-45" : "top-3"}`}
               />
             </span>

@@ -20,11 +20,11 @@ const quickNavItems = [
 
 function HorizontalNav() {
   return (
-    <div className="border-t border-line bg-ink">
+    <div className="border-t border-b border-black/10 bg-paper">
       <div className="container-site">
         <nav
           aria-label="Quick navigation"
-          className="grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-y-0 sm:divide-x"
+          className="grid grid-cols-1 divide-y divide-black/10 sm:grid-cols-3 sm:divide-y-0 sm:divide-x"
         >
           {quickNavItems.map((item, index) => (
             <motion.div
@@ -36,7 +36,7 @@ function HorizontalNav() {
             >
               <Link
                 to={item.to}
-                className="group relative flex flex-col gap-1 px-6 py-6 sm:px-8 sm:py-7 transition-colors duration-300 hover:bg-ink-soft"
+                className="group relative flex flex-col gap-1 px-6 py-6 sm:px-8 sm:py-7 transition-colors duration-300 hover:bg-black/[0.03]"
               >
                 {/* gold underline slide animation */}
                 <span
@@ -64,7 +64,7 @@ function HorizontalNav() {
                     />
                   </svg>
                 </span>
-                <span className="font-display text-xl sm:text-2xl text-paper transition-colors duration-300 group-hover:text-gold" style={{ fontWeight: 500, letterSpacing: "-0.02em" }}>
+                <span className="font-display text-xl sm:text-2xl text-ink transition-colors duration-300 group-hover:text-gold" style={{ fontWeight: 500, letterSpacing: "-0.02em" }}>
                   {item.label}
                 </span>
                 <span className="text-[0.72rem] text-muted tracking-wide uppercase">
@@ -86,7 +86,7 @@ function HomeBand({ tone, first = false, className = "", children }) {
     <section
       data-theme={isLight ? "light" : "dark"}
       className={`${isLight ? "bg-paper text-ink" : "bg-ink text-paper"} ${
-        first ? "" : "border-t border-line"
+        first ? "" : isLight ? "border-t border-black/10" : "border-t border-line"
       } ${className}`}
     >
       {children}
@@ -134,7 +134,7 @@ export default function Home() {
 
       <HorizontalNav />
 
-      <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
+      <HomeBand tone="light" className="py-20 sm:py-28 lg:py-32">
         <div className="container-site">
           <div className="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
             <SectionHeading
@@ -159,7 +159,7 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="light" className="py-24 sm:py-32 lg:py-40">
+      <HomeBand tone="light" className="py-20 sm:py-28 lg:py-32">
         <div className="container-site">
           <SectionHeading
             eyebrow="Approach"
@@ -169,7 +169,7 @@ export default function Home() {
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
             <Reveal>
               <p
-                className="text-3xl leading-snug sm:text-4xl"
+                className="text-3xl leading-snug sm:text-4xl text-ink"
                 style={{ fontFamily: "'Archivo', sans-serif", fontWeight: 700 }}
               >
                 Sustainable growth over isolated campaigns.
@@ -185,7 +185,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.1}>
               <p
-                className="text-base leading-relaxed sm:text-lg"
+                className="text-base leading-relaxed sm:text-lg text-ink/80"
                 style={{ fontFamily: "'Archivo', sans-serif" }}
               >
                 GEMCOP describes growth as something that should be deliberately
@@ -197,19 +197,19 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
+      <HomeBand tone="light" className="py-20 sm:py-28 lg:py-32">
         <div className="container-site">
           <SectionHeading
             eyebrow="Method"
             title="A disciplined approach"
             description="GEMCOP says it works closely with clients to understand their business, challenges, and goals, then applies a clear and disciplined approach focused on execution and meaningful results."
           />
-          <ol className="mt-16 border-t border-line">
+          <ol className="mt-16 border-t border-black/10">
             {approachSteps.map((step, index) => (
-              <li key={step} className="border-b border-line">
+              <li key={step} className="border-b border-black/10">
                 <Reveal delay={index * 0.04} className="flex items-baseline justify-between gap-6 py-6 sm:py-8">
-                  <p className="display-title text-[clamp(1.8rem,3.5vw,3rem)]">{step}</p>
-                  <span className="text-[0.68rem] tracking-[0.22em] text-gold">
+                  <p className="display-title text-[clamp(1.8rem,3.5vw,3rem)] text-ink">{step}</p>
+                  <span className="text-[0.68rem] tracking-[0.22em] text-gold font-medium">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                 </Reveal>
@@ -219,7 +219,7 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="light" className="py-24 sm:py-32 lg:py-40">
+      <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
           <div className="mb-12 sm:mb-16">
             <SectionHeading
@@ -241,11 +241,11 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="dark">
-        <div className="container-site py-24 sm:py-32 lg:py-40">
+      <HomeBand tone="light">
+        <div className="container-site py-20 sm:py-28 lg:py-32">
           <Reveal>
             <p className="eyebrow">Start a conversation</p>
-            <h2 className="display-title mt-5 max-w-4xl text-[clamp(2.6rem,7vw,6rem)]">
+            <h2 className="display-title mt-5 max-w-4xl text-[clamp(2.6rem,7vw,6rem)] text-ink">
               Start a project
             </h2>
             <p className="mt-5 max-w-lg text-muted">

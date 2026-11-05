@@ -29,7 +29,7 @@ export default function ContactForm() {
   }
 
   const fieldClass =
-    "w-full border-b border-line bg-transparent py-3 text-sm text-paper outline-none transition-colors placeholder:text-muted/70 focus:border-gold";
+    "w-full border-b border-line bg-transparent py-3 text-sm text-ink outline-none transition-colors placeholder:text-muted/70 focus:border-gold";
 
   return (
     <form onSubmit={handleSubmit} className="grid gap-6" noValidate>

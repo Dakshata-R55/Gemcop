@@ -21,7 +21,7 @@ export default function ServiceCard({ service, index = 0, className = "" }) {
     >
       <Link
         to={href}
-        className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#111] p-6 text-paper transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-white/25 sm:p-8"
+        className="group flex h-full flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-[#111] p-6 text-paper shadow-[0_12px_40px_rgba(0,0,0,0.18)] transition duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:border-white/25 sm:p-8"
       >
         <div className="mb-8 flex items-start justify-between gap-4">
           <div className="min-w-0">

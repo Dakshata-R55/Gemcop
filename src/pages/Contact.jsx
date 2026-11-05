@@ -20,7 +20,7 @@ export default function Contact() {
           <dl className="mt-10 space-y-6">
             <div>
               <dt className="eyebrow">Email</dt>
-              <dd className="mt-2 text-paper/80">
+              <dd className="mt-2 text-ink/80">
                 <a
                   href={`mailto:${site.contact.email}`}
                   className="hover:text-gold"
@@ -31,7 +31,7 @@ export default function Contact() {
             </div>
             <div>
               <dt className="eyebrow">WhatsApp</dt>
-              <dd className="mt-2 text-paper/80">
+              <dd className="mt-2 text-ink/80">
                 <a
                   href={`https://wa.me/${WHATSAPP_NUMBER}`}
                   target="_blank"
@@ -51,7 +51,7 @@ export default function Contact() {
                     href={social.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-sm text-paper/80 hover:text-gold"
+                    className="text-sm text-ink/80 hover:text-gold"
                     aria-label={social.label}
                   >
                     {social.label}
