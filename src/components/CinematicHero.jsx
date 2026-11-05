@@ -98,7 +98,7 @@ export default function CinematicHero() {
               <Button to={cta.to} variant="gold" className="rounded-full">
                 {cta.label}
               </Button>
-              <Button to="/portfolio" variant="secondary" className="rounded-full">
+              <Button to="/case-studies" variant="secondary" className="rounded-full">
                 Explore Our Work
               </Button>
             </div>

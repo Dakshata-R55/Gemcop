@@ -3,21 +3,18 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { approachSteps, cta } from "../data/site.js";
 import { services } from "../data/services.js";
-import { portfolioPlaceholders } from "../data/portfolio.js";
 import { caseStudyPlaceholders } from "../data/caseStudies.js";
 import Button from "../components/Button.jsx";
 import SectionHeading from "../components/SectionHeading.jsx";
 import Reveal from "../components/Reveal.jsx";
 import Seo from "../components/Seo.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
-import WorkCard from "../components/WorkCard.jsx";
 import CaseStudyCard from "../components/CaseStudyCard.jsx";
 import CinematicHero from "../components/CinematicHero.jsx";
 
 const quickNavItems = [
   { label: "Services", to: "/services", description: "What we offer" },
   { label: "Case Studies", to: "/case-studies", description: "Real results" },
-  { label: "Portfolio", to: "/portfolio", description: "Selected work" },
   { label: "Contact", to: "/contact", description: "Get in touch" },
 ];
 
@@ -27,7 +24,7 @@ function HorizontalNav() {
       <div className="container-site">
         <nav
           aria-label="Quick navigation"
-          className="grid grid-cols-2 divide-x divide-y divide-line sm:divide-y-0 lg:grid-cols-4"
+          className="grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-y-0 sm:divide-x"
         >
           {quickNavItems.map((item, index) => (
             <motion.div
@@ -224,30 +221,6 @@ export default function Home() {
 
       <HomeBand tone="light" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
-          <div className="mb-12 flex flex-col gap-6 sm:mb-16 sm:flex-row sm:items-end sm:justify-between">
-            <SectionHeading
-              eyebrow="Selected work"
-              title="Portfolio"
-            description="Selected work."
-            />
-            <Button to="/portfolio" variant="secondary">
-              View portfolio
-            </Button>
-          </div>
-          <div className="grid gap-5 md:grid-cols-2">
-            {portfolioPlaceholders.slice(0, 3).map((item, index) => (
-              <WorkCard
-                key={`${item.id}-${location.pathname}-${index}`}
-                item={item}
-                featured={index === 0}
-              />
-            ))}
-          </div>
-        </div>
-      </HomeBand>
-
-      <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
-        <div className="container-site">
           <div className="mb-12 sm:mb-16">
             <SectionHeading
               eyebrow="Case studies"
@@ -268,7 +241,7 @@ export default function Home() {
         </div>
       </HomeBand>
 
-      <HomeBand tone="light">
+      <HomeBand tone="dark">
         <div className="container-site py-24 sm:py-32 lg:py-40">
           <Reveal>
             <p className="eyebrow">Start a conversation</p>

@@ -3,7 +3,6 @@ import Layout from "./components/Layout.jsx";
 import Home from "./pages/Home.jsx";
 import Services from "./pages/Services.jsx";
 import ServiceDetail from "./pages/ServiceDetail.jsx";
-import Portfolio from "./pages/Portfolio.jsx";
 import CaseStudies from "./pages/CaseStudies.jsx";
 import Contact from "./pages/Contact.jsx";
 import BookACall from "./pages/BookACall.jsx";
@@ -16,7 +15,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
         <Route path="/services/:serviceId" element={<ServiceDetail />} />
-        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio" element={<Navigate to="/case-studies" replace />} />
         <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/book-a-call" element={<BookACall />} />

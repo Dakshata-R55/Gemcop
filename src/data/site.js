@@ -36,7 +36,6 @@ export const approachSteps = [
 export const navLinks = [
   { label: "Home", to: "/" },
   { label: "Services", to: "/services" },
-  { label: "Portfolio", to: "/portfolio" },
   { label: "Case Studies", to: "/case-studies" },
   { label: "Contact", to: "/contact" },
 ];
@@ -46,11 +45,10 @@ export const cta = {
   to: "/book-a-call",
 };
 
-/** Home and Portfolio are dark; Services and Case Studies are light. */
+/** Home is dark; Services and Case Studies are light. */
 export const pageThemes = {
   "/": "dark",
   "/services": "light",
-  "/portfolio": "dark",
   "/case-studies": "light",
   "/contact": "dark",
   "/book-a-call": "dark",
