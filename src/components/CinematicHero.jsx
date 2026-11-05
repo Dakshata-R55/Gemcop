@@ -24,15 +24,15 @@ export default function CinematicHero() {
         scrollTrigger: {
           trigger: root,
           start: "top top",
-          end: "+=40%",
+          end: "+=10%",
           pin: true,
-          scrub: 0.5,
+          scrub: 0.3,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
       });
 
-      tl.to(".cine-icon", { y: 8, rotate: 1, ease: "none" }, 0);
+      tl.to(".cine-icon", { y: 6, rotate: 0.8, ease: "none" }, 0);
     });
 
     mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
@@ -40,9 +40,9 @@ export default function CinematicHero() {
         scrollTrigger: {
           trigger: root,
           start: "top top",
-          end: "+=60%",
+          end: "+=12%",
           pin: true,
-          scrub: 0.6,
+          scrub: 0.35,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -50,12 +50,12 @@ export default function CinematicHero() {
 
       tl.fromTo(
         ".cine-icon",
-        { scale: 1.02, rotate: -3 },
-        { scale: 1, rotate: 0.8, ease: "none" },
+        { scale: 1.02, rotate: -2 },
+        { scale: 1, rotate: 0.5, ease: "none" },
         0,
       );
 
-      tl.to(".cine-copy", { y: -8, ease: "none" }, 0);
+      tl.to(".cine-copy", { y: -6, ease: "none" }, 0);
     });
 
     ScrollTrigger.refresh();
@@ -65,7 +65,7 @@ export default function CinematicHero() {
 
   return (
     <div ref={rootRef} className="relative overflow-hidden">
-      <div className="relative flex min-h-[100svh] items-end overflow-hidden pb-20 pt-10 lg:items-center lg:pb-28 lg:pt-12">
+      <div className="relative flex min-h-[88svh] lg:min-h-[90svh] items-end overflow-hidden pb-10 pt-6 lg:items-center lg:pb-14 lg:pt-8">
         <div className="cine-stage pointer-events-none absolute inset-0">
           <div className="cine-icon absolute left-1/2 top-[38%] z-10 w-[min(70%,18rem)] -translate-x-1/2 -translate-y-1/2 sm:top-[42%] sm:w-[min(58%,22rem)] lg:left-auto lg:right-[-4%] lg:top-1/2 lg:w-[min(50vw,38rem)] lg:translate-x-0">
             <img

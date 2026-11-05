@@ -23,16 +23,16 @@ const quickNavItems = [
 
 function HorizontalNav() {
   return (
-    <div className="border-t border-b border-line bg-ink">
+    <div className="border-t border-line bg-ink">
       <div className="container-site">
         <nav
           aria-label="Quick navigation"
-          className="flex flex-wrap divide-x divide-line"
+          className="grid grid-cols-2 divide-x divide-y divide-line sm:divide-y-0 lg:grid-cols-4"
         >
           {quickNavItems.map((item, index) => (
             <motion.div
               key={item.to}
-              className="flex-1 min-w-[140px]"
+              className="flex flex-col"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.08, duration: 0.4 }}
@@ -111,25 +111,31 @@ export default function Home() {
         <CinematicHero />
       </HomeBand>
 
-      <HorizontalNav />
-
-      <HomeBand tone="light" className="pt-2 pb-24 sm:pb-32 lg:pb-40">
-        <div className="container-site grid items-start gap-12 lg:grid-cols-[0.85fr_1.15fr]">
-          <SectionHeading eyebrow="Introduction" title="About GEMCOP" />
-          <Reveal delay={0.1}>
-            <p className="text-lg leading-relaxed sm:text-xl">
-              GEMCOP is a growth and digital transformation company that helps
-              startups and enterprises bring clarity to their growth efforts and
-              build systems that perform.
-            </p>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-              Its work brings together strategy, content, technology, branding,
-              and performance marketing to help businesses build sustainable
-              growth systems.
-            </p>
-          </Reveal>
+      <HomeBand tone="light" className="py-20 sm:py-28 lg:py-32">
+        <div className="container-site">
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-16">
+            <div className="lg:col-span-5">
+              <SectionHeading eyebrow="Introduction" title="About GEMCOP" />
+            </div>
+            <div className="lg:col-span-7 lg:pt-3">
+              <Reveal delay={0.1}>
+                <p className="text-xl leading-relaxed text-ink font-light sm:text-2xl lg:text-[1.55rem] lg:leading-[1.45] tracking-[-0.01em]">
+                  GEMCOP is a growth and digital transformation company that helps
+                  startups and enterprises bring clarity to their growth efforts and
+                  build systems that perform.
+                </p>
+                <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+                  Its work brings together strategy, content, technology, branding,
+                  and performance marketing to help businesses build sustainable
+                  growth systems.
+                </p>
+              </Reveal>
+            </div>
+          </div>
         </div>
       </HomeBand>
+
+      <HorizontalNav />
 
       <HomeBand tone="dark" className="py-24 sm:py-32 lg:py-40">
         <div className="container-site">
