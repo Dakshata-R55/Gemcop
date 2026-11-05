@@ -88,18 +88,17 @@ export default function CinematicHero() {
 
         <div className="cine-copy container-site relative z-20 w-full">
           <div className="max-w-xl lg:max-w-[36rem]">
-            <p className="eyebrow">{site.name}</p>
-            <h1 className="display-title mt-8 text-[clamp(3rem,8vw,6.4rem)]">
+            <h1 className="display-title text-[clamp(3rem,8vw,6.4rem)]">
               {site.brandLine}
             </h1>
             <p className="mt-8 max-w-md text-base leading-relaxed text-muted sm:text-lg">
               Structured growth systems — not isolated marketing output.
             </p>
             <div className="mt-12 flex flex-wrap gap-4">
-              <Button to={cta.to} variant="gold">
+              <Button to={cta.to} variant="gold" className="rounded-full">
                 {cta.label}
               </Button>
-              <Button to="/portfolio" variant="secondary">
+              <Button to="/portfolio" variant="secondary" className="rounded-full">
                 Explore Our Work
               </Button>
             </div>

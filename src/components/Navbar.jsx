@@ -49,11 +49,11 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <div
         className={`container-site flex items-center justify-between transition-all duration-500 ${
-          scrolled ? "py-2" : "py-4"
+          scrolled ? "py-1.5" : "py-2.5 sm:py-3"
         }`}
       >
         <div
-          className={`relative z-50 flex w-full items-center justify-between rounded-full border px-4 py-2 sm:px-5
+          className={`relative z-50 flex w-full items-center justify-between rounded-full border px-3.5 py-1.5 sm:px-5 sm:py-1.5
             transition-all duration-500 ease-in-out
             ${
               isGlass
@@ -77,19 +77,19 @@ export default function Navbar() {
             <img
               src={site.logo}
               alt="GEMCOP"
-              className="h-8 w-auto object-contain object-left sm:h-9"
+              className="h-6 w-auto object-contain object-left sm:h-7"
               style={{ filter: "invert(1)" }}
             />
           </Link>
 
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
+          <nav className="hidden items-center gap-5 lg:flex lg:gap-6" aria-label="Primary">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 end={link.to === "/"}
                 className={({ isActive }) =>
-                  `text-[0.78rem] uppercase tracking-[0.16em] transition-colors duration-300 ${
+                  `text-[0.72rem] uppercase tracking-[0.14em] transition-colors duration-300 ${
                     isActive
                       ? "text-gold"
                       : theme === "light"
@@ -104,14 +104,18 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden lg:block">
-            <Button to={cta.to} variant="gold" className="px-5 py-2.5">
+            <Button
+              to={cta.to}
+              variant="gold"
+              className="rounded-full px-4 py-1.5 text-[0.68rem] tracking-[0.16em]"
+            >
               {cta.label}
             </Button>
           </div>
 
           <button
             type="button"
-            className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
+            className={`flex h-8 w-8 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
               theme === "light" ? "border-black/20 text-ink" : "border-white/20 text-paper"
             }`}
             aria-expanded={open}
@@ -176,7 +180,7 @@ export default function Navbar() {
                 ))}
               </nav>
               <div className="mt-8">
-                <Button to={cta.to} variant="gold" onClick={() => setOpen(false)}>
+                <Button to={cta.to} variant="gold" className="rounded-full" onClick={() => setOpen(false)}>
                   {cta.label}
                 </Button>
               </div>

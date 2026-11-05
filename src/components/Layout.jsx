@@ -24,7 +24,7 @@ export default function Layout() {
       <IntroReel />
       <Navbar />
       {/* Spacer to offset fixed navbar height so content isn't hidden behind it */}
-      <div className="h-[60px] shrink-0" aria-hidden="true" />
+      <div className="h-[52px] shrink-0" aria-hidden="true" />
       <PageTransition />
       <main
         id="main-content"
