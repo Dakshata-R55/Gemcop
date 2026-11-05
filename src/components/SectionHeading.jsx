@@ -15,7 +15,7 @@ export default function SectionHeading({
       className={`flex max-w-3xl flex-col gap-5 ${alignment}`}
       initial={reduceMotion ? false : { opacity: 0, y: 22 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
     >
       {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}

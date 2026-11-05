@@ -117,14 +117,14 @@ export default function Home() {
             <div className="lg:col-span-5">
               <SectionHeading eyebrow="Introduction" title="About GEMCOP" />
             </div>
-            <div className="lg:col-span-7 lg:pt-3">
+            <div className="lg:col-span-7 lg:pt-8">
               <Reveal delay={0.1}>
-                <p className="text-xl leading-relaxed text-ink font-light sm:text-2xl lg:text-[1.55rem] lg:leading-[1.45] tracking-[-0.01em]">
+                <p className="text-xl leading-relaxed text-ink font-light sm:text-2xl lg:text-[1.65rem] lg:leading-[1.4] tracking-[-0.01em]">
                   GEMCOP is a growth and digital transformation company that helps
                   startups and enterprises bring clarity to their growth efforts and
                   build systems that perform.
                 </p>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg">
+                <p className="mt-8 max-w-xl text-base leading-relaxed text-ink/65 sm:text-lg">
                   Its work brings together strategy, content, technology, branding,
                   and performance marketing to help businesses build sustainable
                   growth systems.

@@ -24,9 +24,9 @@ export default function CinematicHero() {
         scrollTrigger: {
           trigger: root,
           start: "top top",
-          end: "+=10%",
+          end: "+=8%",
           pin: true,
-          scrub: 0.3,
+          scrub: 0.25,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -40,9 +40,9 @@ export default function CinematicHero() {
         scrollTrigger: {
           trigger: root,
           start: "top top",
-          end: "+=12%",
+          end: "+=8%",
           pin: true,
-          scrub: 0.35,
+          scrub: 0.25,
           invalidateOnRefresh: true,
           anticipatePin: 1,
         },
@@ -65,7 +65,7 @@ export default function CinematicHero() {
 
   return (
     <div ref={rootRef} className="relative overflow-hidden">
-      <div className="relative flex min-h-[88svh] lg:min-h-[90svh] items-end overflow-hidden pb-10 pt-6 lg:items-center lg:pb-14 lg:pt-8">
+      <div className="relative flex min-h-[82svh] lg:min-h-[85svh] items-end overflow-hidden pb-8 pt-4 lg:items-center lg:pb-12 lg:pt-6">
         <div className="cine-stage pointer-events-none absolute inset-0">
           <div className="cine-icon absolute left-1/2 top-[38%] z-10 w-[min(70%,18rem)] -translate-x-1/2 -translate-y-1/2 sm:top-[42%] sm:w-[min(58%,22rem)] lg:left-auto lg:right-[-4%] lg:top-1/2 lg:w-[min(50vw,38rem)] lg:translate-x-0">
             <img
@@ -88,13 +88,13 @@ export default function CinematicHero() {
 
         <div className="cine-copy container-site relative z-20 w-full">
           <div className="max-w-xl lg:max-w-[36rem]">
-            <h1 className="display-title text-[clamp(3rem,8vw,6.4rem)]">
+            <h1 className="display-title text-[clamp(2.8rem,7.5vw,5.8rem)]">
               {site.brandLine}
             </h1>
-            <p className="mt-8 max-w-md text-base leading-relaxed text-muted sm:text-lg">
+            <p className="mt-6 max-w-md text-base leading-relaxed text-muted sm:text-lg">
               Structured growth systems — not isolated marketing output.
             </p>
-            <div className="mt-12 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <Button to={cta.to} variant="gold" className="rounded-full">
                 {cta.label}
               </Button>
